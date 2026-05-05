@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Редактировать книгу{% endblock title %}
+{% block content %}
+<h1 align="center">Редактировать книгу</h1>
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        {{ form }}
+        
+    </table>
+    
+    
+    <p align="center"><input type="submit" value="Окончить редактирование" class="btn btn-warning rounded-pill px-3"></p>
+</form>
+
+{% endblock content %}

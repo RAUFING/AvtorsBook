@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Книга: {{titlebook}}{% endblock title %}
+{% block content %}
+<h1 align="center">Книга: {{titlebook}}</h1>
+
+<div><h2>Описание книги:</h2>
+<h3><br>{{predbook}}</p>
+<br>
+<h2>Текст книги:</h2>
+<pre>{{textbook}}</pre>
+<h2>Основная информация:</h2>
+<h3>Автор: <a href="/profile/{{author_id}}">{{author}}</a></h3>
+<h3>Дата публикации: <b><i>{{date}}</i></b></h3>
+<h3>Кол-во просмотров: <b><i>{{see}}</i></b></h3>
+<br>
+<h2>Коментарии:</h2>
+{% if form != "Auth" %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <input class="btn btn-secondary rounded-pill px-3" type="submit" value="Оставить коментарий">
+</form>
+
+{% endif %}
+{% if form == "Auth"%}
+<h3>Сначало нужно авторизоваться, что бы оставить коментарий!</h3>
+{% endif %}
+
+{% for i in comments %}
+<pre><b>{{i}}</b></pre>
+
+{% empty %}
+<p>К сожалению тут нету коментариев :((((</p>
+{% endfor %}
+</div>
+
+{% endblock content %}  

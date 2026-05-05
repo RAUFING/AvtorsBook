@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Профили{% endblock title %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+  <p align="center"><input  type="search"  placeholder="Найти профиль..." aria-label="Search" name="searchpro" id="searchpro"><input type="submit" value="Найти"></p>
+</form>
+{% if auth == "True" %}
+<hr>
+<a type="button" href="/profile/{{username}}" class="btn btn-secondary rounded-pill px-3">Мой профиль</a>
+<hr>
+<br><br>
+{% endif %}
+
+{% for i in data %}
+<a type="button" href="/profile/{{i}}" class="btn btn-warning rounded-pill px-3">{{i}}</a>
+<br>
+<br>
+<br>
+{% endfor %}
+{% endblock content %}

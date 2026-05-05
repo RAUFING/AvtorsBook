@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock title %}
+{% block content %}
+<h1 align="center">Регистрация</h1>
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        {{ form }}
+        
+    </table>
+    <p align="center"><input type="submit" value="Зарегестрироваться" class="btn btn-success rounded-pill px-3"></p>
+</form>
+{% endblock content %}

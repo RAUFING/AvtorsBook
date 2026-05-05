@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Пользователь: {{allname}}{% endblock title %}
+{% block content %}
+<h1 align="center">Пользователь: {{allname}}</h1>
+<h2>Пользовательское имя: {{username}}</h2>
+<h2>Имя: {{firstname}}</h2>
+<h2>Фамилия: {{lastname}}</h2>
+<br>
+<h2>Описание:</h2>
+<p><b>{{desc}}</b></p>
+<br>
+<h2>Кол-во книг: {{books}}</h2>
+{% endblock content %}

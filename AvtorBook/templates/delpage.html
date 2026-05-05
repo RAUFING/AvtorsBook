@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Удалить книгу{% endblock title %}
+{% block content %}
+<h1 align="center">Удалить книгу</h1>
+{% for i in mybooks %}
+<a href="/book/{{i}}" class="btn btn-primary d-inline-flex align-items-center"><b>{{i}}</b>
+</a><a href="/delete_book/{{i.title}}" class="btn btn-danger rounded-pill px-3" type="button"> 
+<ya-tr-span data-index="4-3" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Danger" data-translation="Опасность" data-ch="0" data-type="trSpan">Удалить</ya-tr-span></a>
+<a class="btn btn-success rounded-pill px-3" type="button" href="/edit_book/{{i.title}}">Изминить</a>
+<br>
+<br>
+{% endfor %}
+
+{% endblock content %}

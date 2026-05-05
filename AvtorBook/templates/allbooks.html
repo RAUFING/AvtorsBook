@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Все книги{% endblock title %}
+{% block content %}
+<h1 align="center">Все книги</h1>
+<div class="d-flex gap-2 justify-content-center py-5">
+    <a href="/allbook/pop" class="btn btn-danger rounded-pill px-3" type="button"><ya-tr-span data-index="4-5" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Info" data-translation="Информация" data-ch="0" data-type="trSpan">Книга по просмотрам</ya-tr-span></a>
+    <a href="/allbook/new" class="btn btn-danger rounded-pill px-3" type="button"><ya-tr-span data-index="4-5" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Info" data-translation="Информация" data-ch="0" data-type="trSpan">Самые новые книги</ya-tr-span></a>
+    <a href="/allbook/opros" class="btn btn-danger rounded-pill px-3" type="button"><ya-tr-span data-index="4-5" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Info" data-translation="Информация" data-ch="0" data-type="trSpan">Книги у которых 0 просмотров</ya-tr-span></a>
+  </div>
+
+{% if name == 'pop' %}
+<h2>Книги по просмотрам</h2>
+{% for i in popbooks %}
+<a href="/book/{{i}}" class="btn btn-primary d-inline-flex align-items-center"><b>{{i}}</b></a><br><br>
+{% endfor %}
+{% endif %}
+{% if name == 'new' %}
+<h2>Самые новые книги</h2>
+{% for i in newbooks %}
+<a href="/book/{{i}}" class="btn btn-primary d-inline-flex align-items-center"><b>{{i}}</b></a><br><br>
+{% endfor %}
+{% endif %}
+{% if name == 'opros' %}
+{% for i in obooks %}
+<a href="/book/{{i}}" class="btn btn-primary d-inline-flex align-items-center"><b>{{i}}</b></a><br><br>
+{% empty %}
+<h3>У всех книг больше 0 просмотров</h3>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}
